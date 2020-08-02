@@ -1,0 +1,43 @@
+version: "3.3"
+
+volumes:
+    local_postgres_data: {}
+
+services:
+    traefik:
+        image: traefik:v1.7
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+            - ../docker/local/traefik/traefik.toml:/traefik.toml
+        ports:
+            - "80:80"
+            - "8080:8080"
+
+    postgres:
+        image: postgres:12-alpine
+        volumes:
+            - local_postgres_data:/var/lib/postgresql/data
+        env_file:
+            - ../envs/local/postgres
+
+    fastapi:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: electioncal_local_fastapi
+        depends_on:
+            - postgres
+            - traefik
+        volumes:
+            - ..:/code
+            - ../docker/local/django/entrypoint:/entrypoint
+            - ../docker/local/django/start:/start
+            - ../.history:/home/code/commandhistory
+        env_file:
+            - ../envs/local/fastapi
+            - ../envs/local/postgres
+        labels:
+            traefik.backend: "fastapi"
+            traefik.basic.port: 8000
+            traefik.basic.frontend.rule: "Host:api.electioncal.docker"
+        command: sleep infinity

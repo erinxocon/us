@@ -1,0 +1,22 @@
+// See https://aka.ms/vscode-remote/devcontainer.json for format details.
+{
+    "name": "electioncal",
+    "context": "..",
+    "service": "fastapi",
+    "dockerComposeFile": [
+        "docker-compose.yml"
+    ],
+    "workspaceFolder": "/code",
+    "extensions": [
+        "ms-python.python",
+        "bungcip.better-toml",
+        "waderyan.gitblame",
+        "oderwat.indent-rainbow",
+        "mechatroner.rainbow-csv",
+        "redhat.vscode-yaml",
+        "ms-python.vscode-pylance",
+        "visualstudioexptteam.vscodeintellicode"
+    ],
+    "shutdownAction": "stopCompose",
+    "postCreateCommand": "cd /code; pipenv --python=3.8.5 sync --dev"
+}

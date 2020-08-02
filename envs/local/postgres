@@ -1,0 +1,6 @@
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=electioncal
+POSTGRES_USER=electioncal
+POSTGRES_PASSWORD=SDsdhh4ysdf4DFt
+DATABASE_URL=psql://electioncal:SDsdhh4ysdf4DFt@postgres:5432/electioncal
