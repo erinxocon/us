@@ -10,7 +10,7 @@ ARG USERNAME=code
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
-RUN python -m pip install pip pipenv black pip install apt-select --upgrade
+RUN python -m pip install pip pipenv apt-select --upgrade
 
 RUN apt-select \
     && cp /etc/apt/sources.list /etc/apt/sources.list.backup \
@@ -35,15 +35,15 @@ RUN apt-get install --no-install-recommends --no-install-suggests -y \
     build-essential \
     libssl1.1
 
-RUN groupadd --gid $USER_GID $USERNAME \
-    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME -s /bin/bash \
-    && apt-get install --no-install-recommends --no-install-suggests -y sudo \
-    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
-    && chmod 0440 /etc/sudoers.d/$USERNAME
+# RUN groupadd --gid $USER_GID $USERNAME \
+#     && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME -s /bin/bash \
+#     && apt-get install --no-install-recommends --no-install-suggests -y sudo \
+#     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+#     && chmod 0440 /etc/sudoers.d/$USERNAME
 
-RUN echo "export PROMPT_COMMAND='history -a'" >> "/home/$USERNAME/.bashrc" \
-    && echo "export HISTFILE=/home/$USERNAME/commandhistory/.bash_history" >> "/home/$USERNAME/.bashrc"
+RUN echo "export PROMPT_COMMAND='history -a'" >> "/root/.bashrc" \
+    && echo "export HISTFILE=/commandhistory/.bash_history" >> "/root/.bashrc"
 
-USER $USERNAME
+# USER $USERNAME
 
 WORKDIR /code

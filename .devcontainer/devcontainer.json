@@ -18,5 +18,5 @@
         "visualstudioexptteam.vscodeintellicode"
     ],
     "shutdownAction": "stopCompose",
-    "postCreateCommand": "cd /code; pipenv --python=3.8.5 sync --dev"
+    "postCreateCommand": "cd /code; pipenv --python=3.8 sync --dev"
 }

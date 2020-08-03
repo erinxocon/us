@@ -2,7 +2,6 @@ version: "3.3"
 
 volumes:
     local_postgres_data: {}
-
 services:
     traefik:
         image: traefik:v1.7
@@ -30,9 +29,9 @@ services:
             - traefik
         volumes:
             - ..:/code
-            - ../docker/local/django/entrypoint:/entrypoint
-            - ../docker/local/django/start:/start
-            - ../.history:/home/code/commandhistory
+            - ../docker/local/fastapi/entrypoint:/entrypoint
+            - ../docker/local/fastapi/start:/start
+            - ../.history:/commandhistory
         env_file:
             - ../envs/local/fastapi
             - ../envs/local/postgres
