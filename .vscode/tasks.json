@@ -20,6 +20,40 @@
                 "panel": "new"
             },
             "problemMatcher": []
+        },
+        {
+            "label": "Build Static Site",
+            "type": "shell",
+            "command": [
+                "pipenv",
+                "run",
+                "python",
+                "scripts/build_site.py"
+            ],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run Static Site",
+            "type": "shell",
+            "command": [
+                "pipenv",
+                "run",
+                "python",
+                "-m",
+                "http.server",
+                "--directory",
+                "site/",
+                "4242"
+            ],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
         }
     ]
 }

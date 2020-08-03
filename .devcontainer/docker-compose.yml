@@ -39,4 +39,6 @@ services:
             traefik.backend: "fastapi"
             traefik.basic.port: 8000
             traefik.basic.frontend.rule: "Host:api.electioncal.docker"
+            traefik.static.port: 4242
+            traefik.static.frontend.rule: "Host:electioncal.docker"
         command: sleep infinity
