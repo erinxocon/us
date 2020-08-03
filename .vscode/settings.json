@@ -8,7 +8,7 @@
         "--target-version",
         "py38",
         "--line-length",
-        "125"
+        "99"
     ],
     "[yaml]": {
         "editor.tabSize": 4
