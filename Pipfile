@@ -8,6 +8,9 @@ black = "*"
 pytest = "*"
 nox = "*"
 pre-commit = "*"
+sqlalchemy-stubs = "*"
+# mypy = "*"
+# isort = "*"
 
 [packages]
 fastapi = "==0.60.*"
@@ -23,7 +26,8 @@ jinja2 = "*"
 icalendar = "*"
 pendulum = "*"
 databases = {extras = ["postgresql"], version = "*"}
-aiofiles = "*"
+requests = "*"
+alembic = "==1.4.*"
 
 [requires]
 python_version = "3.8"
