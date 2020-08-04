@@ -20,3 +20,4 @@ dashboard = true
 [docker]
 domain = "docker"
 watch = true
+exposedByDefault = false

@@ -1,3 +1,4 @@
+import os
 import time
 from typing import List
 
@@ -8,6 +9,10 @@ from . import schemas, crud, models
 from .database import SessionLocal, engine
 
 models.Base.metadata.create_all(bind=engine)
+
+
+# os.environ.setdefault("FASTAPI_SETTINGS_MODULE", "config.settings.production")
+
 
 app = FastAPI()
 
@@ -26,7 +31,7 @@ async def root():
     return {"message": "Hello World"}
 
 
-@app.get("/teapot/", status_code=418)
+@app.get("/teapot", status_code=418)
 async def i_am_a_teapot():
     return
 

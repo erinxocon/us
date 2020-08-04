@@ -22,6 +22,8 @@ tomlkit = "*"
 jinja2 = "*"
 icalendar = "*"
 pendulum = "*"
+databases = {extras = ["postgresql"], version = "*"}
+aiofiles = "*"
 
 [requires]
 python_version = "3.8"
