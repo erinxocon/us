@@ -1,17 +1,18 @@
 FROM jetblackpope/pybuntu:3.8-focal
 
 ARG DEBIAN_FRONTEND=noninteractive
+
 ARG USERNAME=code
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
+
+# Set to the number of processors times 2
 ENV PIPENV_MAX_SUBPROCESS 16
 
-ARG USERNAME=code
-ARG USER_UID=1000
-ARG USER_GID=$USER_UID
+# Install a couple python "system" packages
+RUN python -m pip install pip pipenv black apt-select --upgrade
 
-RUN python -m pip install pip pipenv apt-select --upgrade
-
+# Find a faster mirror cause the achrive ones are almost always super slow
 RUN apt-select \
     && cp /etc/apt/sources.list /etc/apt/sources.list.backup \
     && mv sources.list /etc/apt/
@@ -39,15 +40,18 @@ RUN apt-get install --no-install-recommends --no-install-suggests -y \
     postgresql-client \
     htop
 
-# RUN groupadd --gid $USER_GID $USERNAME \
-#     && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME -s /bin/bash \
-#     && apt-get install --no-install-recommends --no-install-suggests -y sudo \
-#     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
-#     && chmod 0440 /etc/sudoers.d/$USERNAME
+# Should probably write this into some sort of bash script that reads in vars
+# and doesn't always do all the things.
+RUN groupadd --gid $USER_GID $USERNAME \
+    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME -s /bin/bash \
+    && apt-get install --no-install-recommends --no-install-suggests -y sudo \
+    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME
 
 RUN echo "export PROMPT_COMMAND='history -a'" >> "/root/.bashrc" \
-    && echo "export HISTFILE=/commandhistory/.bash_history" >> "/root/.bashrc"
+    && echo "export HISTFILE=/commandhistory/.bash_history_root" >> "/root/.bashrc"
 
-# USER $USERNAME
+RUN echo "export PROMPT_COMMAND='history -a'" >> "/home/code/.bashrc" \
+    && echo "export HISTFILE=/commandhistory/.bash_history_code" >> "/home/code/.bashrc"
 
 WORKDIR /code

@@ -37,8 +37,8 @@ services:
         labels:
             traefik.enable: "True"
             traefik.backend: "pgadmin"
-            traefik.mailhog.port: 5050
-            traefik.mailhog.frontend.rule: "Host:pgadmin.docker"
+            traefik.pgadmin.port: 5050
+            traefik.pgadmin.frontend.rule: "Host:pgadmin.docker"
 
     fastapi:
         build:

@@ -4,10 +4,7 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-black = "*"
 pytest = "*"
-nox = "*"
-pre-commit = "*"
 sqlalchemy-stubs = "*"
 # mypy = "*"
 # isort = "*"
