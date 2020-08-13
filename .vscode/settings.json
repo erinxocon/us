@@ -13,5 +13,7 @@
     "[dockerfile]": {
         "editor.formatOnSave": false
     },
-    "python.languageServer": "Pylance"
+    "python.languageServer": "Pylance",
+    "python.testing.promptToConfigure": false,
+    "python.testing.pytestEnabled": false,
 }
