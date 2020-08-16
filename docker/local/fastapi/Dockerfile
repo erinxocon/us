@@ -6,9 +6,6 @@ ARG USERNAME=code
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
-# Set to the number of processors times 2
-ENV PIPENV_MAX_SUBPROCESS 16
-
 # Install a couple python "system" packages
 RUN python -m pip install pip pipenv black apt-select --upgrade
 
