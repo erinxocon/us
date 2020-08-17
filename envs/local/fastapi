@@ -15,7 +15,7 @@ SMTP_USER=
 SMTP_PASSWORD=
 
 # Error reporting
-SENTRY_DSN=
+SENTRY_DSN=""
 
 # Domain Configurations
 BASE_DOMAIN=electioncal.docker

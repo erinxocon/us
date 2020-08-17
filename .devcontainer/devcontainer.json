@@ -21,7 +21,7 @@
         "ms-azuretools.vscode-docker"
     ],
     "shutdownAction": "stopCompose",
-    "postCreateCommand": "cd /code; pipenv --python=3.8 sync --dev",
+    "postCreateCommand": "cd /code; pipenv sync --dev",
     // uncomment the following line if you are developing on linux
     // due to the way docker on linux handles file perms with dev containers
     // "remoteUser": "code"

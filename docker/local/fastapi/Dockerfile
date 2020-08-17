@@ -7,7 +7,7 @@ ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
 # Install a couple python "system" packages
-RUN python -m pip install pip pipenv black apt-select --upgrade
+RUN python -m pip install pip pipenv black isort apt-select --upgrade
 
 # Find a faster mirror cause the achrive ones are almost always super slow
 RUN apt-select \
