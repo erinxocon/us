@@ -16,9 +16,9 @@
         "redhat.vscode-yaml",
         "ms-python.vscode-pylance",
         "visualstudioexptteam.vscodeintellicode",
-        "vsls-contib.gitdoc",
+        // "vsls-contib.gitdoc",
         "docsmsft.docs-markdown",
-        "ms-azuretools.vscode-docker"
+        // "ms-azuretools.vscode-docker"
     ],
     "shutdownAction": "stopCompose",
     "postCreateCommand": "cd /code; pipenv sync --dev",

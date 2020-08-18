@@ -5,16 +5,12 @@ from pydantic import BaseSettings, HttpUrl, PostgresDsn, validator
 
 
 class Settings(BaseSettings):
+    PROJECT_NAME: str = "electioncal"
     API_V1_STR: str = "/v1"
     SECRET_KEY: str = token_urlsafe(32)
+    BASE_URL: str
 
     SENTRY_DSN: Optional[HttpUrl] = None
-
-    @validator("SENTRY_DSN", pre=True)
-    def sentry_dsn_can_be_blank(cls, v: str) -> Optional[str]:
-        if len(v) == 0:
-            return None
-        return v
 
     POSTGRES_HOST: str
     POSTGRES_USER: str
@@ -36,7 +32,11 @@ class Settings(BaseSettings):
             path=f"/{values.get('POSTGRES_DB') or ''}",
         )
 
+    TWILIO_SID: Optional[str]
+    TWILIO_AUTH_TOKEN: Optional[str]
+    TWILIO_SECRET: Optional[str]
 
-if __name__ == "__main__":
-    s = Settings()
-    print(s)
+
+settings = Settings()
+
+__all__ = (settings,)

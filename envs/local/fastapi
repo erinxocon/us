@@ -8,14 +8,23 @@ PIPENV_MAX_SUBPROCESS=32
 
 # Backend Stuff
 SECRET_KEY=changethis
+FIRST_SUPERUSER=admin@api.electioncal.us
+FIRST_SUPERUSER_PASSWORD=changethis
+
+# Email Config
 SMTP_TLS=True
 SMTP_PORT=587
-SMTP_HOST=
-SMTP_USER=
-SMTP_PASSWORD=
+SMTP_HOST=""
+SMTP_USER=""
+SMTP_PASSWORD=""
 
 # Error reporting
 SENTRY_DSN=""
 
 # Domain Configurations
-BASE_DOMAIN=electioncal.docker
+BASE_URL=electioncal.docker
+
+# TWILIO STUFF
+TWILIO_SID=""
+TWILIO_AUTH_TOKEN=""
+TWILIO_SECRET=""
