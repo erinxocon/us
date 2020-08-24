@@ -51,6 +51,6 @@ RUN echo "export PROMPT_COMMAND='history -a'" >> "/root/.bashrc" \
 RUN echo "export PROMPT_COMMAND='history -a'" >> "/home/code/.bashrc" \
     && echo "export HISTFILE=/commandhistory/.bash_history_code" >> "/home/code/.bashrc"
 
-ENV PYTHONPATH="/code/api:${PYTHONPATH}"
+ENV PYTHONPATH="/code/api"
 
 WORKDIR /code
