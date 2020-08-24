@@ -46,9 +46,11 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
 RUN echo "export PROMPT_COMMAND='history -a'" >> "/root/.bashrc" \
-    && echo "export HISTFILE=/commandhistory/.bash_history_root" >> "/root/.bashrc"
+    && echo "export HISTFILE=/commandhistory/.bash_history_root" >> "/root/.bashrc" 
 
 RUN echo "export PROMPT_COMMAND='history -a'" >> "/home/code/.bashrc" \
     && echo "export HISTFILE=/commandhistory/.bash_history_code" >> "/home/code/.bashrc"
+
+ENV PYTHONPATH="/code/api:${PYTHONPATH}"
 
 WORKDIR /code
