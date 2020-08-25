@@ -3,4 +3,3 @@ POSTGRES_PORT=5432
 POSTGRES_DB=electioncal
 POSTGRES_USER=electioncal
 POSTGRES_PASSWORD=simpledevpassword
-# DATABASE_URL=psql://electioncal:simpledevpassword@postgres:5432/sensorapi

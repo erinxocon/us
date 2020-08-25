@@ -36,6 +36,9 @@ class Settings(BaseSettings):
     TWILIO_AUTH_TOKEN: Optional[str]
     TWILIO_SECRET: Optional[str]
 
+    SUPERUSER_EMAIL: str
+    SUPERUSER_PASSWORD: str
+
 
 settings = Settings()
 

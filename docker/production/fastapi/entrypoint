@@ -1,5 +1,6 @@
 #!/bin/bash
 
-pipenv run python api/scripts/backend_pre_start.py
+# Let the DB start
+python /code/api/scripts/backend_pre_start.py
 
 exec "$@"

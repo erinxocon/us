@@ -51,6 +51,10 @@ RUN echo "export PROMPT_COMMAND='history -a'" >> "/root/.bashrc" \
 RUN echo "export PROMPT_COMMAND='history -a'" >> "/home/code/.bashrc" \
     && echo "export HISTFILE=/commandhistory/.bash_history_code" >> "/home/code/.bashrc"
 
+COPY ./docker/local/fastapi/entrypoint /entrypoint
+
+COPY ./docker/local/fastapi/start /start
+
 ENV PYTHONPATH="/code/api"
 
 WORKDIR /code
