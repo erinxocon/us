@@ -50,7 +50,7 @@ services:
             - traefik
         volumes:
             - ..:/code
-            - ../docker/production/fastapi/entrypoint:/entrypoint
+            - ../docker/local/fastapi/entrypoint:/entrypoint
             - ../docker/local/fastapi/start:/start
             - ../.history:/commandhistory
         env_file:

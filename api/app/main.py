@@ -1,17 +1,15 @@
-import os
 import time
 from typing import List
 
 from fastapi import Depends, FastAPI, HTTPException, Request
 from sqlalchemy.orm import Session
 
-from . import crud, models, schemas
-from .db.session import SessionLocal, engine
+from . import crud, schemas
+from .db.session import SessionLocal
+from .conf import settings
 
-models.Base.metadata.create_all(bind=engine)
 
-
-app = FastAPI()
+app = FastAPI(title=settings.PROJECT_NAME, openapi_url=f"{settings.API_V1_STR}/openapi.json)")
 
 
 @app.middleware("http")
