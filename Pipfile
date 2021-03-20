@@ -26,7 +26,7 @@ tenacity = "~=6.2.0"
 mistune= "==2.0.0a4"
 Pillow = "*"
 tomlkit = "*"
-jinja2 = "~=2.11.2"
+jinja2 = "~=2.11.3"
 icalendar = "*"
 pendulum = "*"
 
